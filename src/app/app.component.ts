@@ -1,6 +1,7 @@
 import { Component, VERSION } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import * as ckCustom from '../app/ckCustom/build/ckeditor';
 import htmlDoc from './doc';
 @Component({
   selector: 'my-app',
@@ -11,8 +12,8 @@ export class AppComponent {
   profileForm: FormGroup = this.formBuilder.group({
     body: [{ value: htmlDoc, disabled: false }, Validators.required]
   });
-  public Editor = ClassicEditor;
-
+  // public Editor = ClassicEditor;
+  public Editor = ckCustom;
   config = {
     toolbar: {
       items: [
@@ -42,9 +43,9 @@ export class AppComponent {
       shouldNotGroupWhenFull: true,
       ckfinder: {
         options: {
-            resourceType: 'Images'
-        },
-      },
+          resourceType: 'Images'
+        }
+      }
     }
   };
 
